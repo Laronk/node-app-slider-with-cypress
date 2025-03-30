@@ -35,3 +35,22 @@ describe('Swiper Gallery Test', function () {
     cy.get('.swiper-slide-active').should('contain', 'Rome');
   });
 });
+
+// Sprawdzenie czy galeria jest poprawnie wyświetlana:
+// (sprawdź, czy wszystkie elementy galerii są widoczne)
+// Krok 1: Otwórz stronę z galerią.
+// Krok 2: Sprawdź, czy główny kontener galerii jest widoczny.
+// Krok 3: Sprawdź, czy trzy slajdy w galerii są widoczne.
+// Krok 4: Sprawdź, czy przyciski nawigacji (poprzedni, następny) są obecne i klikalne.
+describe('Swiper Gallery Test', function () {
+  it('Check if gallery elements are visible', function () {
+    cy.visit('http://localhost:3000');
+    // Check if the main gallery container is visible
+    cy.get('.swiper-container').should('be.visible');
+    // Check if three slides are visible
+    cy.get('.swiper-slide').should('have.length', 3);
+    // Check if navigation buttons are present and clickable
+    cy.get('.swiper-button-next').should('be.visible').click();
+    cy.get('.swiper-button-prev').should('be.visible').click();
+  });
+});
